@@ -38,7 +38,7 @@ class CTFGame(Widget):
         with self.canvas:
             self.board = Rectangle(texture=self.grass_texture,pos=self.pos,size=self.size)
             self.player = Rectangle(texture=self.player_texture,pos=self.player_position,size=(50,50))
-            self.red_flag = Flag(color="red",pos=(self.center_x,self.center_y),size=(self.height/5,self.width/5))
+            self.red_flag = Flag(color="red",pos=(self.center_x+self.center_x/2,self.center_y),size=(self.height/5,self.width/5))
 
         self.bind(size=self.update_size)
         self._keyboard = Window.request_keyboard(self._keyboard_closed, self)
@@ -52,7 +52,7 @@ class CTFGame(Widget):
         Logger.info("CTFGame: update_size()")
         self.board.size = self.size
         print "red_flag (%s,%s)" % (self.red_flag.x,self.red_flag.y)
-        self.red_flag.pos = self.center_x,self.center_y
+        self.red_flag.pos = self.center_x+self.center_x/2,self.center_y
         print "red_flag (%s,%s)" % (self.red_flag.x,self.red_flag.y)
 
     def _on_keyboard_down(self, keyboard, keycode, text, modifiers):
