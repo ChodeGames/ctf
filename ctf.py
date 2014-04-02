@@ -14,7 +14,12 @@ class Flag(Widget):
         super(Flag, self).__init__(**kwargs)
         self.bind(size=self.update,pos=self.update)
         with self.canvas:
-            Color(1,0,0)
+            if color is "red":
+                Color(1,0,0)
+            elif color is "blue":
+                Color(0,0,1)
+            else:
+                Color(1,1,1)
             self.flag_pole = Rectangle()
             self.flag = Rectangle()
 
